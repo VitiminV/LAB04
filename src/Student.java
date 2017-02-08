@@ -8,6 +8,20 @@ public class Student {
     private int id;
     private double gpa;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Student)) return false;
+
+        Student student = (Student) o;
+
+        if (id != student.id) return false;
+        if (Double.compare(student.gpa, gpa) != 0) return false;
+        return name.equals(student.name);
+
+    }
+
+
     public Student(int id, String name, double gpa) {
         this.name = name;
         this.id = id;
@@ -69,7 +83,7 @@ public class Student {
         Student[] newList = new Student[students.length];
         if(index < 0)return null;
         for(int i = 0; i < students.length; i++){
-            if(i >= index){
+            if(index < i){
                 newList[i-1] = students[i];
             }
             else{
@@ -82,6 +96,7 @@ public class Student {
     public Student[] createRandomStudents(){
         Student[] students = new Student[100];
         for (int i = 0; i < 100; i++) {
+            students[i] = new Student();
             students[i].setID(2*(i+1));
         }
         return students;

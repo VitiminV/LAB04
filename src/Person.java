@@ -23,6 +23,10 @@ public class Person {
         this.lastName = lastName;
     }
 
+    public Person(Person person){
+        this(person.getFirstName(), person.getLastName(), person.getAge(), person.getHeight());
+    }
+
     public String getFirstName() {
         return this.firstName;
     }
@@ -94,6 +98,17 @@ public class Person {
         return people;
     }
 
+    public Boolean isInArray(Person [] people, String term){
+        if(people == null) return false;
+
+        for (int i = 0; i < people.length; i++) {
+            if(people[i].firstName.equals(term)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public Person[] getPeopleWithSameFirstName(Person [] people) {
         if(people == null) return null;
         if(people[0] == null) return  null;
@@ -101,7 +116,8 @@ public class Person {
         int index = 0;
         for (int i = 0; i < people.length; i++) {
             for (int j = 0; j < people.length; j++) {
-                if (Objects.equals(people[i].firstName, people[j].firstName) && !(Arrays.asList(NewPeople).contains(people[i]))) {
+                if (Objects.equals(people[i].getFirstName(), people[j].getFirstName()) && (i != j) && (!Arrays.asList(NewPeople).
+                        contains(people[i]))){
                     NewPeople[index] = people[i];
                     index++;
                 }

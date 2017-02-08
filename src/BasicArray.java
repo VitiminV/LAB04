@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -15,13 +16,13 @@ public class BasicArray {
 
     public int[] getEvenNumbers(int input){
         if(input < 0) return null;
-        int[] evens = new int[input];
-        int index = 0;
         if(input < 0){
             return null;
         }
-        for (int i = input; i <= 0; i--) {
-            if (i % 2 == 0) {
+        int[] evens = new int[input];
+        int index = 0;
+        for (int i = input; i >= 0; i--) {
+            if (i%2 == 0){
                 evens[index] = i;
                 index++;
             }
@@ -31,6 +32,8 @@ public class BasicArray {
 
     public boolean isPrime(int input){
         //credit: http://www.mkyong.com/java/how-to-determine-a-prime-number-in-java/
+        if(input==2) return true;
+        if(input==1) return false;
         if(input%2==0) return false;
         for(int i=3; i*i<=input; i+=2){
             if(input%i==0) return false;
@@ -40,13 +43,13 @@ public class BasicArray {
 
     public int[] getPrimeNumbers(int input){
         if(input < 0) return null;
-        int[] primes = new int[input];
-        int index = 0;
         if(input < 0) {
             return null;
         }
-        for (int i = input; i <= 0; i--) {
-            if (isPrime(i)) {
+        int[] primes = new int[input];
+        int index = 0;
+        for (int i = input; i >= 0; i--) {
+            if (isPrime(i)){
                 primes[index] = i;
                 index++;
             }
@@ -77,8 +80,8 @@ public class BasicArray {
         if(array == null) return null;
         for (int i = 0; i<array.length; i++){
             for (int j = 0; j<array.length; j++){
-                if(Objects.equals(array[i], array[j])){
-                    return array[j];
+                if(Objects.equals(array[i], array[j]) && i != j){
+                    return array[i];
                 }
             }
         }
@@ -88,10 +91,12 @@ public class BasicArray {
     public int[] remove(int [] array, int input){
         if(array == null) return null;
         if(input < 0) return null;
-        int[] newArray = new int[array.length];
+        int[] newArray = new int[array.length-1];
+        int index = 0;
         for (int i = 0; i<array.length; i++){
             if(array[i] != input){
-                newArray[i] = array[i];
+                newArray[index] = array[i];
+                index++;
             }
         }
         return newArray;
