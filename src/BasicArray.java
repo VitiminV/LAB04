@@ -14,6 +14,7 @@ public class BasicArray {
     }
 
     public int[] getEvenNumbers(int input){
+        if(input < 0) return null;
         int[] evens = new int[input];
         int index = 0;
         if(input < 0){
@@ -38,6 +39,7 @@ public class BasicArray {
     }
 
     public int[] getPrimeNumbers(int input){
+        if(input < 0) return null;
         int[] primes = new int[input];
         int index = 0;
         if(input < 0) {
@@ -53,6 +55,7 @@ public class BasicArray {
     }
 
     public double[] findSmallestAndLargest(double [] array){
+        if(array == null) return null;
         double[] boxes = new double[2];
         double largest = array[0];
         double smallest = array[0];
@@ -71,7 +74,7 @@ public class BasicArray {
     }
 
     public String findDuplicate(String [] array){
-        if(array.length == 0|| array == null) return null;
+        if(array == null) return null;
         for (int i = 0; i<array.length; i++){
             for (int j = 0; j<array.length; j++){
                 if(Objects.equals(array[i], array[j])){
@@ -83,8 +86,9 @@ public class BasicArray {
     }
 
     public int[] remove(int [] array, int input){
-        int[] newArray = new int[array.length -1];
-        if(array.length == 0 || array == null) return null;
+        if(array == null) return null;
+        if(input < 0) return null;
+        int[] newArray = new int[array.length];
         for (int i = 0; i<array.length; i++){
             if(array[i] != input){
                 newArray[i] = array[i];

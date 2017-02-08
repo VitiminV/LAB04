@@ -69,7 +69,8 @@ public class Person {
     }
 
     public Person[] getSiblings(Person [] people){
-        if(people.length == 0 || people == null) return null;
+        if(people == null) return null;
+        if(people[0] == null) return  null;
         int index = 0;
         Person[] siblings = new Person[people.length];
         for(int i = 0; i<people.length; i++){
@@ -82,6 +83,8 @@ public class Person {
     }
 
     public Person[] OrderPeopleByHeight(Person [] people){
+        if(people == null) return null;
+        if(people[0] == null) return  null;
         Arrays.sort(people, new Comparator<Person>(){
             @Override
             public int compare(Person o1, Person o2) {
@@ -92,11 +95,13 @@ public class Person {
     }
 
     public Person[] getPeopleWithSameFirstName(Person [] people) {
+        if(people == null) return null;
+        if(people[0] == null) return  null;
         Person[] NewPeople = new Person[people.length];
         int index = 0;
         for (int i = 0; i < people.length; i++) {
             for (int j = 0; j < people.length; j++) {
-                if (Objects.equals(people[i].firstName, people[j].firstName) && !Arrays.asList(NewPeople).contains(people[i])) {
+                if (Objects.equals(people[i].firstName, people[j].firstName) && !(Arrays.asList(NewPeople).contains(people[i]))) {
                     NewPeople[index] = people[i];
                     index++;
                 }

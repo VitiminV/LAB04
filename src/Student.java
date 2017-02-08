@@ -82,12 +82,7 @@ public class Student {
     public Student[] createRandomStudents(){
         Student[] students = new Student[100];
         for (int i = 0; i < 100; i++) {
-            if(i == 0){
-                students[0].setID(2);
-            }
-            else{
-            students[i].setID(i*2);
-            }
+            students[i].setID(2*(i+1));
         }
         return students;
     }

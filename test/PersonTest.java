@@ -16,7 +16,7 @@ public class PersonTest {
 		assertEquals("first name was not set", "john", p.getFirstName());
 		assertEquals("last name was not set", "doe", p.getLastName());	
 		assertEquals("age was not set", 0, p.getAge());	
-		assertEquals("height was not set", 0, p.getHeight());	
+		assertEquals("height was not set", 0, p.getHeight(),0);
 	}
 	
 	@Test
@@ -27,7 +27,7 @@ public class PersonTest {
 		assertEquals("first name was not set", "john", p.getFirstName());
 		assertEquals("last name was not set", "doe", p.getLastName());	
 		assertEquals("age was not set", 20, p.getAge());	
-		assertEquals("height was not set", 165, p.getHeight());		
+		assertEquals("height was not set", 165, p.getHeight(), 0);
 	}
 	
 	@Test
